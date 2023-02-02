@@ -73,7 +73,10 @@ describe '#stock_picker' do
 
     it 'should return a pair of days' do
         expect(stock_picker(arr).length).to eq(2)
+    end
 
+    it 'should return the most profitable pair of days' do
+        expect(stock_picker(arr)).to eq([1,2])
     end
 
     it 'the sell day should not be before the buy day' do

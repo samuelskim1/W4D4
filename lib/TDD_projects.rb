@@ -37,9 +37,15 @@ def my_transpose(arr)
     holder
 end
 
-# arr = [
-#     [0, 1, 2],
-#     [3, 4, 5],
-#     [6, 7, 8]
-# ]
-# p my_transpose(arr)
+def stock_picker(stocks)
+    pairs = []
+
+    stocks.each_index do |i1|
+        stocks.each_index do |i2|
+            pairs << [i1, i2] if i1 < i2
+        end
+    end
+
+    differences = pairs.sort_by{ |pair| stocks[pair[1]] - stocks[pair[0]] }
+    differences[-1]
+end
