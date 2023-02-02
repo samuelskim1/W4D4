@@ -39,3 +39,29 @@ describe '#two_sum' do
 
 
 end
+
+describe "#my_transpose" do
+    subject(:arr) {[
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8]
+    ]}
+
+    before(:each) do
+        expect_any_instance_of(Array).not_to receive(:transpose)
+    end
+
+    it 'should raise an error when argument is not an array' do
+        expect { my_transpose('cat') }.to raise_error(ArgumentError)
+    end
+
+    it 'should swap the rows with columns' do
+        expect(my_transpose(arr)).to eq([
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8]
+        ])
+    end
+
+
+end
