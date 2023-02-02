@@ -23,13 +23,18 @@ end
 def my_transpose(arr)
     raise ArgumentError unless arr.is_a?(Array)
     # debugger
+
+    holder = Array.new(arr.length) {Array.new(arr.length)}
+
     arr.each_with_index do |row, row_i|
         row.each_with_index do |col, col_i|
-            temp = arr[row_i][col_i]
-            arr[row_i][col_i] = arr[col_i][row_i]
-            arr[col_i][row_i] = temp
+            # temp = arr[row_i][col_i]
+            holder[col_i][row_i] = arr[row_i][col_i]
+            holder[row_i][col_i] = arr[col_i][row_i]
         end
     end
+
+    holder
 end
 
 # arr = [

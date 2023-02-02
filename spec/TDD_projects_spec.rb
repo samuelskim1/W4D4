@@ -62,6 +62,26 @@ describe "#my_transpose" do
             [2, 5, 8]
         ])
     end
+end
+
+describe '#stock_picker' do
+    subject(:arr) {[60,30,50,20,30]}
+
+    it 'should raise an error when argument is not an array' do
+        expect { my_transpose('cat') }.to raise_error(ArgumentError)
+    end
+
+    it 'should return a pair of days' do
+        expect(stock_picker(arr).length).to eq(2)
+
+    end
+
+    it 'the sell day should not be before the buy day' do
+        expect(stock_picker(arr)).to eq([1,2])
+        expect(stock_picker(arr)).to_not eq([1,0])
+    end
+
+    
 
 
 end
